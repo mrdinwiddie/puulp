@@ -9,7 +9,9 @@ import ui from '@nuxt/ui/vite'
 export default defineConfig({
   plugins: [
     vue(),
-    ui(),
+    ui({
+      prefix: 'Nuxt'
+    }),
     vueDevTools(),
   ],
   resolve: {
