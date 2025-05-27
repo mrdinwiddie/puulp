@@ -54,6 +54,8 @@ playwright-report/
 ### Vue ###
 # Vue.js build files and development artifacts
 
+*.d.ts
+
 .DS_Store
 node_modules
 dist
