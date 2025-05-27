@@ -1,15 +1,7 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <UCard>
+    <div class="about">
+      <h1>&copy; 2025 Dennis Dinwiddie</h1>
+    </div>
+  </UCard>
 </template>
-
-<!-- <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style> -->
