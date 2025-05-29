@@ -16,7 +16,7 @@ const heading = ref('PUULP | Metrics')
           <NavBar />
         </div>
       </header>
-      <RouterView @createClient="createClient" />
+      <RouterView />
     </UApp>
   </main>
 </template>
