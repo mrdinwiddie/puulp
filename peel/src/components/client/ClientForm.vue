@@ -7,7 +7,6 @@ const emit = defineEmits<{
 }>()
 const newClient = ref('')
 function formSubmit() {
-  // error.value = ''
   if (newClient.value.trim()) {
     emit('addClient', newClient.value)
     newClient.value = ''

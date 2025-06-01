@@ -7,6 +7,7 @@ const props = defineProps<{
 </script>
 <template>
   <UCard v-for="client in props.clients" :key="client.id">
-    {{ client.name }}
+    CLIENT
+    <Client :client></Client>
   </UCard>
 </template>

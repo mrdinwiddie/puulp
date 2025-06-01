@@ -4,6 +4,7 @@ import ClientForm from '@/components/client/ClientForm.vue'
 import type { Client } from '@/types'
 import ClientList from '@/components/client/ClientList.vue'
 const clients = ref<Client[]>([])
+
 function addClient(newClient: string) {
   clients.value.push({
     id: crypto.randomUUID(),
@@ -17,7 +18,7 @@ function addClient(newClient: string) {
 -->
 <template>
   <main>
-    <!-- creating a client should probably be  -->
+    <!-- creating a client should probably be in some sort of admin view -->
     <ClientForm @add-client="addClient"></ClientForm>
     <ClientList :clients></ClientList>
     <h4 v-if="!clients.length">Create a Client!</h4>
