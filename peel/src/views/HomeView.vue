@@ -14,7 +14,7 @@ function addClient(newClient: string) {
 }
 </script>
 <!--
-  mock login workflow
+  TODO : mock login workflow
 -->
 <template>
   <main>

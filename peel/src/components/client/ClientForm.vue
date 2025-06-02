@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { NButton } from 'naive-ui'
+import { NButton, NCard, NForm, NFormItem, NInput } from 'naive-ui'
 const error = ref('')
 const emit = defineEmits<{
   addClient: [newClient: string]
@@ -16,16 +16,18 @@ function formSubmit() {
 }
 </script>
 <template>
-  <UCard v-if="error">ERROR: {{ error }} </UCard>
-  <form @submit.prevent="formSubmit">
-    <label>
-      Add Client +
-      <input v-model="newClient" name="newClient" @input="error = ''" />
-    </label>
-    <div>
-      <button>ADD</button>
-      <!-- <UButton>Add</UButton> -->
-      <!-- <n-button>naive-ui</n-button> -->
-    </div>
-  </form>
+  <NCard v-if="error">ERROR: {{ error }} </NCard>
+  <NForm @submit.prevent="formSubmit" inline v-model="newClient">
+    <NFormItem label="Add Client" path="count">
+      <NInput
+        type="text"
+        placeholder="Client name..."
+        v-model:value="newClient"
+        @input="error = ''"
+      />
+    </NFormItem>
+    <NFormItem>
+      <NButton attr-type="button" @click="formSubmit" type="primary"> + </NButton>
+    </NFormItem>
+  </NForm>
 </template>

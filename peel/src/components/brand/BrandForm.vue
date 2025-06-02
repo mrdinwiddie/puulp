@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { NButton, NCard, NForm, NFormItem, NInput } from 'naive-ui'
 import { ref } from 'vue'
 const error = ref('')
 const emit = defineEmits<{
@@ -6,7 +7,7 @@ const emit = defineEmits<{
 }>()
 const newBrand = ref('')
 function brandFormSubmit() {
-  console.log(newBrand.value)
+  console.log('TEST', newBrand.value)
   if (newBrand.value.trim()) {
     emit('addBrand', newBrand.value)
     newBrand.value = ''
@@ -16,14 +17,20 @@ function brandFormSubmit() {
 }
 </script>
 <template>
-  <UCard v-if="error">ERROR: {{ error }} </UCard>
-  <form @submit.prevent="brandFormSubmit">
-    <label>
+  <NCard v-if="error">ERROR: {{ error }} </NCard>
+  <NForm @submit.prevent="brandFormSubmit" inline v-model="newBrand">
+    <NFormItem>
       Add Brand +
-      <input v-model="newBrand" name="newBrand" @input="error = ''" />
-    </label>
-    <div>
-      <button>ADD</button>
-    </div>
-  </form>
+      <NInput
+        type="text"
+        placeholder="Brand name..."
+        v-model:value="newBrand"
+        name="newBrand"
+        @input="error = ''"
+      />
+    </NFormItem>
+    <NFormItem>
+      <NButton attr-type="button" @click="brandFormSubmit" type="primary">ADD</NButton>
+    </NFormItem>
+  </NForm>
 </template>

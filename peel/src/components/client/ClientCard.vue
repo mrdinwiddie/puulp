@@ -5,14 +5,13 @@ import type { Brand } from '@/types'
 import BrandList from '../brand/BrandList.vue'
 const brands = ref<Brand[]>([])
 import type { Client } from '@/types'
+import { NCard } from 'naive-ui'
 
 function addBrand(newBrand: string) {
-  console.log('t', newBrand)
-
   brands.value.push({
     id: crypto.randomUUID(),
     name: newBrand,
-    sector: 'TEST2222',
+    sector: 'CPG',
   })
   console.log(brands.value)
 }
@@ -29,10 +28,10 @@ const props = defineProps<{
     plan data intake / ingestion / import
     plan data outtake / excretion / export
   -->
-  <UCard>
-    TEST2
+  <NCard>
+    Name:
     {{ props.client.name }}
-  </UCard>
+  </NCard>
   <BrandForm @add-brand="addBrand"></BrandForm>
   <BrandList :brands></BrandList>
   <h4 v-if="!brands.length">Create a Brand!</h4>
