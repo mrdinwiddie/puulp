@@ -16,7 +16,7 @@ function formSubmit() {
 }
 </script>
 <template>
-  <NCard v-if="error">ERROR: {{ error }} </NCard>
+  <NCard v-if="error">Error: {{ error }} </NCard>
   <NForm @submit.prevent="formSubmit" inline v-model="newClient">
     <NFormItem label="Add Client" path="count">
       <NInput

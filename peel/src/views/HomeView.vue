@@ -13,12 +13,9 @@ function addClient(newClient: string) {
   })
 }
 </script>
-<!--
-  TODO : mock login workflow
--->
+
 <template>
   <main>
-    <!-- creating a client should probably be in some sort of admin view -->
     <ClientForm @add-client="addClient"></ClientForm>
     <ClientList :clients></ClientList>
     <h4 v-if="!clients.length">Create a Client!</h4>

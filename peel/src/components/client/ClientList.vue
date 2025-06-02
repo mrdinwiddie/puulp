@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Client } from '@/types'
-// import type { Client } from '../../types'
 import { NCard } from 'naive-ui'
 import ClientCard from '@/components/client/ClientCard.vue'
 const props = defineProps<{

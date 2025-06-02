@@ -1,16 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import { ref, h } from 'vue'
-import {
-  darkTheme,
-  NConfigProvider,
-  NCard,
-  NSpace,
-  NButton,
-  NSwitch,
-  NLayout,
-  NLayoutSider,
-} from 'naive-ui'
+import { NConfigProvider, NSpace, NLayout, NLayoutSider } from 'naive-ui'
 import type { MenuOption } from 'naive-ui'
 import { NMenu } from 'naive-ui'
 
@@ -50,13 +41,9 @@ const menuOptions: MenuOption[] = [
 <template>
   <NConfigProvider class="h-full" :theme="theme">
     <NSpace vertical>
-      <header>
+      <header class="leftpad">
         <h1>{{ heading }}</h1>
-
-        <!-- <NButton @click="theme = darkTheme"> Dark </NButton>
-        <NButton @click="theme = null"> Light </NButton> -->
       </header>
-      <!-- <NSwitch v-model:value="collapsed" /> -->
       <NLayout has-sider>
         <NLayoutSider
           bordered
@@ -70,7 +57,7 @@ const menuOptions: MenuOption[] = [
         >
           <n-menu :collapsed="collapsed" :collapsed-width="64" :options="menuOptions" />
         </NLayoutSider>
-        <NLayout>
+        <NLayout class="leftpad">
           <NSpace>
             <RouterView />
           </NSpace>
@@ -89,6 +76,9 @@ nav {
 }
 span {
   margin: 2rem auto;
+  padding-left: 2rem;
+}
+.leftpad {
   padding-left: 2rem;
 }
 </style>
