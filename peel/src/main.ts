@@ -1,9 +1,20 @@
-import { mount } from 'svelte'
-import './app.css'
-import App from './App.svelte'
+import './assets/css/main.css';
 
-const app = mount(App, {
-  target: document.getElementById('app')!,
-})
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import VueFeather from 'vue-feather';
+import PageHeaderVue from './components/ui/PageHeader.vue';
+import Icon from '@/components/ui/Icon.vue';
 
-export default app
+import App from './App.vue'
+import router from './router'
+
+const app = createApp(App)
+
+app.component(VueFeather.name, VueFeather);
+app.component('PageHeader', PageHeaderVue);
+app.component('Icon', Icon);
+app.use(createPinia())
+app.use(router)
+
+app.mount('#app')
