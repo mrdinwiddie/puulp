@@ -1,20 +1,15 @@
 PUULP Metrics is a dashboard for monitoring data metrics and creating per client/brand dashboards.
 
-peel is the UI (Vuejs)
-pit is a theoretical backend
+back-end :
+to validate use of pocketbase, test with prod-like data. it's not possible to scale horizontally (maybe this could be done with litestream?). it likely doesn't (perfectly) fit the usecase of loading in 3rd party ad data.
 
-Peel TODOs
+alternative : use PB as a separate service for all non-data centric functionality. e.g., user auth, file uploads, client management. create a separate service to act as the 'data engine', loading external data, serving metrics/ad data.
 
-- client detail/focus page
-- add brands
-- brands are created under a client
-- metrics are added to brands. enable configuring each brand to have unique metric components
-- client metrics are metrics accross brands
-- plan data ingestion / import
-- plan data excretion / export
-- cache currency conversion data on page load
-- add currency selection to currency converter
-- add additional metric components
-- mock login flow
-- creating a client should be in some sort of admin view
-- does a user own clients? or are clients mostly separate and users are granted access?
+pocketbase - https://github.com/pocketbase/pocketbase https://pocketbase.io/
+litestream - https://github.com/benbjohnson/litestream https://litestream.io/
+
+## included in main.go is a go hook for opening a connection to a postgresql db and running a query & printing the results.
+
+peel is the UI (Vuejs, if using PB consider switching to svelte)
+
+it is currently a shadcn-ui-vue premade "block" dashboard.

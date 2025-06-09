@@ -15,5 +15,6 @@ Go:
 - chi ^
 - stdlib ^
 - gin
+- pocketbase
 
 https://12factor.net/
