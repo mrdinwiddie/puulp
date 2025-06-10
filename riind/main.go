@@ -27,6 +27,7 @@ type Users struct {
 }
 
 // this function is only run when the route /hello is accessed
+// 
 func getUser() string {
 	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
 		"password=%s dbname=%s sslmode=disable",
@@ -69,6 +70,8 @@ func getUser() string {
 	}
 	return me
 }
+
+// TODO : test getUser and load data into the SQLite db 
 
 func main() {
 	app := pocketbase.New()
